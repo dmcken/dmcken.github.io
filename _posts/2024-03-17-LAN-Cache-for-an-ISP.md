@@ -1,6 +1,6 @@
 ---
 title: LAN Cache for an ISP
-date: 2024-03-17 00:00:00 -0400
+date: 2024-03-17 00:00:01 -0400
 categories: [ISP, software-config]
 tags: [lan-cache]     # TAG names should always be lowercase
 author: dmcken 
