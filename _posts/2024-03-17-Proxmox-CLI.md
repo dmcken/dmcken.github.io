@@ -12,6 +12,8 @@ This is to be a list of various CLI commands for either automation or if for som
 
 ## VMs
 
+
+
 ### VM is locked
 
 Problem: can’t lock file ‘/var/lock/qemu-server/lock-<VMID>.conf’ – got timeout or `VM is locked (backup|snapshot|clone|etc)`
