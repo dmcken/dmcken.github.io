@@ -1,7 +1,7 @@
 ---
 title: NetCat Proxy
 date: 2024-03-17 00:00:00 -0400
-categories: [Networking, misc]
+categories: [networking, misc]
 tags: [netcat]     # TAG names should always be lowercase
 author: dmcken 
 comments: false

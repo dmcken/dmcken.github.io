@@ -1,7 +1,7 @@
 ---
 title: Ubuntu - Free DNS port 53
 date: 2024-03-17 00:00:00 -0400
-categories: [Ubuntu, ]
+categories: [Ubuntu, systemd]
 tags: [systemd,dns]     # TAG names should always be lowercase
 author: dmcken 
 comments: false

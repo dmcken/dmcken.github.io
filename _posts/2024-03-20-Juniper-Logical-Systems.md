@@ -1,7 +1,7 @@
 ---
 title: Juniper logical systems
 date: 2024-03-20 00:00:01 -0400
-categories: [Networking, Juniper]
+categories: [networking, Juniper]
 tags: [juniper,vMX]
 author: dmcken 
 comments: false
