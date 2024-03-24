@@ -104,13 +104,15 @@ To Add:
     * https://www.juniper.net/documentation/en_US/junos/topics/task/configuration/interfaces-configuring-unicast-rpf.html
 * MC-LAG
 * LLDP
+* DNS
 * NTP
 * SNMP
 * Syslog
     * time-format millisecond year
     * source-address
 * netconf
-* protect-re filter
+* protect-re filter:
+  * https://jncie.eu/how-to-deploy-vmx-with-multiple-res-and-multiple-fpcs-in-eve-ng-kvm/
 * system accounting events
     * login
     * change-log
@@ -123,4 +125,7 @@ To Add:
     * Blackholes
         * ASN for communities:
             * 16 vs 32 bit ASNs.
+* vMX:
+  * Docker:
+    * https://community.juniper.net/browse/blogs/blogviewer?blogkey=cb2ba379-a181-43d5-ae3d-8ec3832f087f
     
