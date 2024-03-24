@@ -1,7 +1,7 @@
 ---
 title: PON Network design considerations
 date: 2024-03-21 00:00:01 -0400
-categories: [networking,PON]
+categories: [networking,pon]
 tags: [pon,design]
 author: dmcken 
 comments: false

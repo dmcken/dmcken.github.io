@@ -1,7 +1,7 @@
 ---
 title: Python Text-to-Speech
 date: 2024-03-20 00:00:01 -0400
-categories: [Python]
+categories: [python]
 tags: [python,pyttsx3]
 author: dmcken 
 comments: false
