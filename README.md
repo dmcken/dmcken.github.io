@@ -54,3 +54,13 @@ This work is published under [MIT][mit] License.
 [use-template]: https://github.com/cotes2020/chirpy-starter/generate
 [CD]: https://en.wikipedia.org/wiki/Continuous_deployment
 [mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
+
+
+## How to use chirpy
+
+* Basic Formatting:
+  * https://idratherbewriting.com/documentation-theme-jekyll/mydoc_images.html
+  * https://chirpy.cotes.page/posts/text-and-typography/
+    * Source for the above:
+    * https://raw.githubusercontent.com/cotes2020/jekyll-theme-chirpy/master/_posts/2019-08-08-text-and-typography.md
+
