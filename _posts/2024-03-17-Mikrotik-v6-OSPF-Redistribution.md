@@ -1,7 +1,7 @@
 ---
 title: Mikrotik (v6) OSPF Redistribution
 date: 2024-03-17 00:00:00 -0400
-categories: [Mikrotik]
+categories: [mikrotik]
 tags: [mikrotik,v6,routing,ospf]
 author: dmcken 
 comments: false
