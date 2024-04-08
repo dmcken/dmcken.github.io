@@ -63,4 +63,5 @@ This work is published under [MIT][mit] License.
   * https://chirpy.cotes.page/posts/text-and-typography/
     * Source for the above:
     * https://raw.githubusercontent.com/cotes2020/jekyll-theme-chirpy/master/_posts/2019-08-08-text-and-typography.md
-
+* Jekyll
+  * https://jekyllrb.com/docs/posts/ 
