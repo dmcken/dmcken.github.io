@@ -16,6 +16,20 @@ Your zabbix timescaledb instance is running slow? This post is for you. Quite a 
 
 ### Zabbix DB
 
+The zabbix database is 
+
+* History tables:
+  * history
+  * history_log
+  * history_str
+  * history_text
+  * history_uint
+* Trends tables:
+  * trends
+  * trends_uint
+* Trigger events:
+  * events
+
 
 
 ## Settings - Checking current value and setting:
