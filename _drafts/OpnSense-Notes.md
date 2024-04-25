@@ -18,6 +18,8 @@ Todo:
 Questions to answer:
 * Transparent bridge - can we firewall / IDS in such a setup?
   * Out of band management recommended.
+  * https://www.youtube.com/watch?v=dTUvlFfThPw
+  * https://docs.opnsense.org/manual/how-tos/transparent_bridge.html
 * HA, what options are available?
   * CARP
   * Hardware failover
@@ -46,3 +48,26 @@ Questions to answer:
 * Backup:
   * Git backup of config
 * NTP
+* Interesting plugins:
+  * os-chrony
+  * os-clamav
+  * os-crowdsec
+  * os-dmidecode
+  * os-dnscrypt-proxy
+  * os-freeradius
+  * os-frr
+  * os-git-backup
+  * os-hw-probe
+  * os-lldp
+  * os-netdata
+  * os-ntopng
+  * Monitoring tools:
+    * os-wazuh-agent - Wazuh
+    * os-zabbix-agent - Zabbix 
+  * Utilities:
+    * os-iperf
+  * VM Guest addons:
+    * os-qemu-guest-agent	
+    * os-virtualbox
+    * os-vmware
+    * os-xen
