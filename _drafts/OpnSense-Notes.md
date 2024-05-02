@@ -7,7 +7,8 @@ author: dmcken
 comments: false
 ---
 
-
+Observations:
+* You have to restart the service (stop + start) to activate a peer under wireguard.
 
 Todo:
 
