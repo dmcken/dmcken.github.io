@@ -3,7 +3,7 @@ title: Docker for an ISP
 date: 2024-03-18 00:00:01 -0400
 categories: [Containers, Docker]
 tags: [docker, networking]
-author: dmcken 
+author: dmcken
 comments: false
 ---
 
@@ -49,3 +49,10 @@ https://docs.docker.com/registry/recipes/mirror/ full list of daemon.json option
 sudo usermod -aG docker ${USER}
 ```
 
+## Docker cleanup
+
+Clean dangling images, containers, etc.
+
+```bash
+docker system prune -a -f
+```
