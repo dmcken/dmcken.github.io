@@ -1,9 +1,9 @@
 ---
 title: Proxmox CLI
 date: 2024-03-17 00:00:00 -0400
-categories: [Servers, Proxmox]
+categories: [servers,proxmox]
 tags: [proxmox,cli]
-author: dmcken 
+author: dmcken
 comments: false
 ---
 
