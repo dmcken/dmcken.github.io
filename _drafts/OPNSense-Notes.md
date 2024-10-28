@@ -1,11 +1,34 @@
 ---
-title: OpnSense Notes
+title: OPNSense Notes
 # date: 2024-04-07 00:00:01 -0400
 categories: [firewall, opnsense]
 tags: [firewall, opnsense,ids]
-author: dmcken 
+author: dmcken
 comments: false
 ---
+
+
+## Setup
+
+### Install from ISO
+
+### Upgrade to latest
+
+### Post-install setup
+#### Plugins
+* Virtualization:
+  * If installed as a VM on Proxmox:
+    1. Install `os-qemu-quest-agent`
+    2. Setup the guest agent on the VM:
+      1. Under Options of the VM locate "QEMU Guest Agent"
+      2. Change settings to match:<br>
+         ![ospf-general-tab](/assets/img/2024-10-27-QEMU-Guest-Agent-Setup-Proxmox.png)
+    3. The VM now needs to be shutdown entirely (a reboot usually doesn't work).
+
+
+________
+
+To format down here
 
 Observations:
 * You have to restart the service (stop + start) to activate a peer under wireguard.
@@ -41,7 +64,7 @@ Questions to answer:
   * ZenArmor
     * TLS Inspect
   * Wazuh agent
-    * Can view firewall logs  
+    * Can view firewall logs
   * Bogon update sources.
 * Monitoring:
   * Insight - netflow analyzer
@@ -64,11 +87,11 @@ Questions to answer:
   * os-ntopng
   * Monitoring tools:
     * os-wazuh-agent - Wazuh
-    * os-zabbix-agent - Zabbix 
+    * os-zabbix-agent - Zabbix
   * Utilities:
     * os-iperf
   * VM Guest addons:
-    * os-qemu-guest-agent	
+    * os-qemu-guest-agent
     * os-virtualbox
     * os-vmware
     * os-xen
