@@ -3,7 +3,7 @@ title: Ceph Notes
 # date: 2024-04-07 00:00:01 -0400
 categories: [storage, ceph]
 tags: [storage,ceph]
-author: dmcken 
+author: dmcken
 comments: false
 ---
 
