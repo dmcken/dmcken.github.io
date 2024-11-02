@@ -13,6 +13,6 @@ comments: false
 
 ### Netwatch
 
-* Host should be able to take DNS name
+* Host should be able to take DNS name (see: https://help.mikrotik.com/docs/spaces/ROS/pages/8323208/Netwatch) - Only IPs are accepted.
   * Possible workaround using script.
 
