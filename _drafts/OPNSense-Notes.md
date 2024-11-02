@@ -15,6 +15,9 @@ comments: false
 ### Upgrade to latest
 
 ### Post-install setup
+
+#### Getting the OPNSense server onto your network
+
 #### Plugins
 * Virtualization:
   * If installed as a VM on Proxmox:
@@ -26,9 +29,73 @@ comments: false
     3. The VM now needs to be shutdown entirely (a reboot usually doesn't work).
 
 
+#### Alternative admin user
+
+Items to detemine before starting:
+* Do you want to use SSH keys instead of password?
+
+Procedure
+
+* Create user:
+  * Goto System -> Access -> Users
+  * Create a user with the following:
+    * Set appropriate password.
+    * Valid login shell
+    * Member of group: admins
+    * Authorized key if you want to use for SSH login.
+
+
+#### Allow SSH access
+
+Items to detemine before starting:
+* Do you want to use SSH keys instead of password?
+* What interfaces you want SSH accessible to?
+* Do you want SSH users to be able to sudo to root? And if yes, should a password be required.
+
+Procedure:
+
+* Turn on service:
+  * Goto System -> Settings -> Administration:
+    * Secure shell section:
+      * Secure Shell Server: Enable
+      * Login Group: wheel,admins
+      * If you want password login:
+        * Authentication Method: Enable Permit password login
+      * If you don't want SSH accessible to all interfaces change "Listen Interfaces" to the desired interfaces.
+    * Authentication section:
+      * If you want sudo access:
+        * sudo: "Ask password" or "No password"
+        * Group to: wheel,admins
+    * Save at the bottom.
+
+Usage:
+
+1. SSH to a usable IP on an available interface.
+2. When you login for a root shell type `sudo -i`.
+3. You will be dropped into the console prompt, 8 to get a root shell.
+
+
+## Shell commands
+
+### FRR Routing
+
+#### Enter FRR Shell
+
+```bash
+vtysh
+```
+
+
 ________
 
-To format down here
+To format down here:
+
+Alernative user setup:
+- Separate name (allows root login via ssh to remain disabled).
+- root-like
+- sudo via ssh
+- https://forum.opnsense.org/index.php?topic=33903.0
+
 
 Observations:
 * You have to restart the service (stop + start) to activate a peer under wireguard.
@@ -95,3 +162,12 @@ Questions to answer:
     * os-virtualbox
     * os-vmware
     * os-xen
+* VPN redundancy (separate DC):
+  * Config to sync
+    * Auth servers? Possibly no (LDAP or similar maybe)
+    * Certificates
+    * Firewall rules (from VPN subnets)
+      * NAT - Maybe
+      * OpenVPN
+    * Users and groups
+  * Setup a full wireguard mesh underlay
