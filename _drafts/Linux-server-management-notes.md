@@ -14,9 +14,13 @@ comments: false
 
 
 
+## Basic commands
 
+### Find
 
-
+```bash
+find . -name Thumbs.db
+```
 
 
 
@@ -37,6 +41,10 @@ https://docs.kernel.org/networking/device_drivers/ethernet/mellanox/mlx5/counter
 
 #### ip
 
+
+```bash
+ip -stats link show [<dev>]
+```
 
 
 

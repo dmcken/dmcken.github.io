@@ -16,7 +16,18 @@ comments: false
 
 ### Post-install setup
 
+#### CARP notes
+
+It seems CARP can be setup on a interface with
+
 #### Getting the OPNSense server onto your network
+
+Check the routes via CLI (FreeBSD based)
+```bash
+netstat -rn
+route add -net 10.0.0.0/8 <gw>
+```
+
 
 #### Plugins
 * Virtualization:
@@ -46,10 +57,7 @@ Procedure
 
 
 #### Allow SSH access
-
-Items to detemine before starting:
-* Do you want to use SSH keys instead of password?
-* What interfaces you want SSH accessible to?
+2024-12-01-SSH accessible to?
 * Do you want SSH users to be able to sudo to root? And if yes, should a password be required.
 
 Procedure:
@@ -140,7 +148,7 @@ Questions to answer:
   * Git backup of config
 * NTP
 * Interesting plugins:
-  * os-chrony
+  * os-chrony - Time sync vs built in?
   * os-clamav
   * os-crowdsec
   * os-dmidecode
@@ -149,9 +157,15 @@ Questions to answer:
   * os-frr
   * os-git-backup
   * os-hw-probe
-  * os-lldp
-  * os-netdata
+  * os-lldp -
+  * maltrail -
+  * os-netdata - detailed info for troubleshooting
   * os-ntopng
+  * Load balancers:
+    * caddy
+    * haproxy
+    * nginx
+    * siproxyd - Support seems source-only.
   * Monitoring tools:
     * os-wazuh-agent - Wazuh
     * os-zabbix-agent - Zabbix
@@ -162,8 +176,8 @@ Questions to answer:
     * os-virtualbox
     * os-vmware
     * os-xen
-* VPN redundancy (separate DC):
-  * Config to sync
+* VPN redundancy (how to have multiple VPN servers in separate DCs that can be used to handle failover):
+  * Config to sync (System -> HA)
     * Auth servers? Possibly no (LDAP or similar maybe)
     * Certificates
     * Firewall rules (from VPN subnets)
@@ -171,3 +185,13 @@ Questions to answer:
       * OpenVPN
     * Users and groups
   * Setup a full wireguard mesh underlay
+* Shells
+  * csh
+  * sh
+  * tcsh
+
+Pending questions:
+* How best to implement clusters? (i.e. more than 2 hosts).
+* CARP:
+  * How slow is CARP to start responding to requests on the gateway IP?
+  * Is there any way to recover public IP from having to be used for CARP? e.g. use IPv6 or private ips but float a public IP.

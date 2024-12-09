@@ -10,9 +10,7 @@ comments: false
 
 
 
-
-
-## Useful commands to document
+## Useful commands to document for troubleshooting
 
 ```bash
 athbox 80211stats

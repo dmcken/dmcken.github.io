@@ -28,7 +28,12 @@ Whenever you want to use ansible make sure you have activated the venv.
 I will defer to official docs for installation of [pipx](https://pipx.pypa.io/stable/).
 
 ```bash
-pipx install --include-deps ansible argcomplete
+# Base install
+pipx install --include-deps ansible
+
+# Addons
+pipx inject ansible paramiko
+pipx inject ansible ansible-pylibssh
 ```
 
 ### Confirming your install is working and checking version
@@ -67,6 +72,44 @@ ansible all -i 192.168.1.12, -m shell -a "who" -u admin -k
 
 
 
+## Mikrotik
+
+### Pre-requisites
+```bash
+pipx inject ansible librouteros
+```
+
+
+### Ad-hoc
+
+```bash
+ansible all -i 192.168.1.12, -u dmcken -k \
+    -e ansible_network_os=community.routeros.routeros \
+    -e ansible_connection=ansible.netcommon.network_cli \
+    -m community.routeros.command -a "commands=/ip/address/print"
+```
+
+or with a inventory file of:
+```
+[routers]
+rtr_bedroom     ansible_host=192.168.1.12
+rtr_livingroom  ansible_host=192.168.1.11
+
+[routers:vars]
+ansible_connection=ansible.netcommon.network_cli
+ansible_network_os=community.routeros.routeros
+ansible_user=dmcken
+ansible_ssh_pass=password123
+```
+
+```bash
+
+
+ansible routers -i hosts -m community.routeros.facts
+ansible routers -i hosts -m community.routeros.command -a "commands=/ip/address/print"
+```
+
+
 
 
 # Random notes:
@@ -82,7 +125,6 @@ ansible all -i 192.168.1.12, -m shell -a "who" -u admin -k
   * https://docs.ansible.com/ansible/latest/collections/community/routeros/index.html
   * https://docs.ansible.com/ansible/latest/collections/community/routeros/docsite/api-guide.html
 * https://www.ansible.com/ecosystem/?extIdCarryOver=true&sc_cid=701f2000001OH7YAAW
-  * ansible-pylibssh
   * AWX
   * Collections
   * Core
@@ -95,3 +137,210 @@ ansible all -i 192.168.1.12, -m shell -a "who" -u admin -k
 * Non server related:
   * https://docs.ansible.com/ansible/latest/collections/index_cliconf.html - Cliconf (network devices)
 * All collections
+* Modules:
+  * Network:
+    * cli
+    * files
+      * net_get
+      * net_put
+    * interface
+    * layer2
+    * layer3
+    * netconf
+    * protocol
+      * net_lldp
+    * Routing
+      * net_static_route
+    * Restconf
+    * System
+      * net_banner
+      * net_logging
+      * net_ping
+      * net_system
+      * net_user
+    * Edgeos     - Edge Router
+    * Edgeswitch - Edge Switch
+    * Frr        - FRR routing
+    * Junos      - Juniper
+    * Ovs        - Open vSwitch
+    * Panos      - PAN-OS
+    * Routeros   - Mikrotik
+    * Vyos       - VyOS
+  * Cloud
+    * Digital Ocean
+    * Docker
+    * Google     - GCP
+    * Kubevirt
+    * Lxc
+    * Misc:
+      * helm     - k8s helm
+      * proxmox  - General proxmox
+      * proxmox_kvm
+      * proxmox_template
+      * terraform
+      * virt
+      * virt_net
+      * virt_pool
+    * Podman
+    * Xenserver
+  * Clustering:
+    * etcd3
+    * K8S        - Kubernetes
+    * pacemaker_cluster
+    * ZooKeeper
+  * Command:
+    * command
+    * expect
+    * raw
+    * script
+    * shell
+    * telnet
+  * Crypto:
+    * get_certificate
+    * openssh_cert
+    * openssh_keypair
+    * openssl_*
+    * acme_*
+  * Database:
+    * Influxdb
+    * Mysql
+    * Postgresql
+  * Files:
+    * archive – Creates a compressed archive of one or more files or trees
+    * assemble – Assemble configuration files from fragments
+    * blockinfile – Insert/update/remove a text block surrounded by marker lines
+    * copy – Copy files to remote locations
+    * fetch – Fetch files from remote nodes
+    * file – Manage files and file properties
+    * find – Return a list of files based on specific criteria
+    * ini_file – Tweak settings in INI files
+    * iso_extract – Extract files from an ISO image
+    * lineinfile – Manage lines in text files
+    * patch – Apply patch files using the GNU patch tool
+    * read_csv – Read a CSV file
+    * replace – Replace all instances of a particular string in a file using a back-referenced regular expression
+    * stat – Retrieve file or file system status
+    * synchronize – A wrapper around rsync to make common tasks in your playbooks quick and easy
+    * tempfile – Creates temporary files and directories
+    * template – Template a file out to a remote server
+    * unarchive – Unpacks an archive after (optionally) copying it from the local machine
+    * xml – Manage bits and pieces of XML files or strings
+  * Identity:
+    * Ipa
+  * Inventory:
+    * group_by
+  * Monitoring:
+    * zabbix_*
+  * Net Tools:
+    * cloudflare_dns
+    * ip_netns
+    * ipify_facts
+    * ipinfoio_facts
+    * lldp
+    * nmcli
+    * nsupdate
+    * omapi_host
+    * snmp_facts
+    * get_url
+    * slurp – Slurps a file from remote nodes (wtf???)
+    * uri – Interacts with webservices
+    * ldap_*
+    * netbox_*
+  * Notifications:
+    * irc
+    * jabber
+    * logentries_msg
+    * mail
+    * pushover
+    * syslogger
+    * telegram
+  * Packaging:
+    * Language:
+      * pip
+      * pip_package_info
+    * OS:
+      * apt
+      * apt_key
+      * apt_repo
+      * package – Generic OS package manager
+      * package_facts – package information as facts
+    * Remote Management modules:
+      * wakeonlan
+      * Dell:
+        * idrac_firmware – Firmware update from a repository on a network share (CIFS, NFS)
+        * idrac_server_config_profile – Export or Import iDRAC Server Configuration Profile (SCP)
+      * HP:
+        * hpilo_boot – Boot system using specific media through HP iLO interface
+        * hpilo_facts – Gather facts through an HP iLO interface
+        * hponcfg – Configure HP iLO interface using hponcfg
+      * Ipmi:
+        * ipmi_boot – Management of order of boot devices
+        * ipmi_power – Power management for machine
+      * Source Control:
+        * git
+        * git_config
+        * github_*
+        * gitlab_*
+      * Storage:
+        * zfs
+      * System:
+        * at – Schedule the execution of a command or script file via the at command
+        * capabilities – Manage Linux capabilities
+        * cron – Manage cron.d and crontab entries
+        * debconf – Configure a .deb package
+        * facter – Runs the discovery program facter on the remote system
+        * filesystem – Makes a filesystem
+        * gather_facts – Gathers facts about remote hosts
+        * interfaces_file – Tweak settings in /etc/network/interfaces files
+        * ping – Try to connect to host, verify a usable python and return pong on success
+        * python_requirements_facts – Show python path and assert dependency versions
+        * reboot – Reboot a machine
+        * service – Manage services
+        * service_facts – Return service state information as fact data
+        * setup – Gathers facts about remote hosts
+        * sysctl – Manage entries in sysctl.conf
+        * systemd – Manage services
+        * timezone – Configure timezone setting
+        * user – Manage user accounts
+        * Firewall:
+          * iptables – Modify iptables rules
+          * ufw – Manage firewall with UFW
+        * SSH:
+          * known_hosts – Add or remove a host from the known_hosts file
+          * authorized_key – Adds or removes an SSH authorized key
+    * Utilities:
+      * Logic:
+        * assert – Asserts given expressions are true
+        * async_status – Obtain status of asynchronous task
+        * debug – Print statements during execution
+        * fail – Fail with custom message
+        * import_playbook – Import a playbook
+        * import_role – Import a role into a play
+        * import_tasks – Import a task list
+        * include – Include a play or task list
+        * include_role – Load and execute a role
+        * include_tasks – Dynamically include a task list
+        * include_vars – Load variables from files, dynamically within a task
+        * pause – Pause playbook execution
+        * set_fact – Set host facts from a task
+        * set_stats – Set stats for the current ansible run
+        * wait_for – Waits for a condition before continuing
+        * wait_for_connection – Waits until remote system is reachable/usable
+    * Web Infastructure:
+      * apache2_module – Enables/disables a module of the Apache2 webserver
+      * django_manage – Manages a Django application
+      * gunicorn – Run gunicorn with various settings
+      * htpasswd – manage user files for basic authentication
+      * nginx_status_facts – Retrieve nginx status facts
+      * supervisorctl – Manage the state of a program or group of programs running via supervisord
+
+
+
+
+
+
+
+
+
+
+
