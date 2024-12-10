@@ -8,6 +8,21 @@ comments: false
 ---
 
 
+## System
+
+### History
+
+(As of 7.16)
+
+Log messages now include changes:
+```
+address list entry added by api:dmcken@192.168.1.80 (*5 = /ip firewall address-list add address=10.0.0.0/8 comment=RFC1918 list=RFC1918)
+```
+
+`System` -> `History`
+
+Only have trace and action visible to GUI, redo and undo are visible via CLI.
+
 
 ## Tools
 
