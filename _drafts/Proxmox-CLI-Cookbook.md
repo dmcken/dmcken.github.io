@@ -88,4 +88,5 @@ pct set 102 -mp0 /mnt/nas0/,mp=/nas0/
 | pvesh   | CLI version of the API |
 | pvesr   | Storage Replication |
 | qmrestore | Restore qemu server backups |
+| `qm remote-migrate` and `pct remote-migrate` | Migrate a VM to a different cluster |
 
