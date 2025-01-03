@@ -8,6 +8,11 @@ comments: false
 ---
 
 
+## EVPN
+
+* BGP support is currently missing.
+* VxLAN transport is active but no coordination.
+
 ## System
 
 ### History
