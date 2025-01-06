@@ -11,7 +11,7 @@ comments: false
 
 ## Install
 
-While you can install ansible via your package manager this is highly discouraged because it tends to be very far behind the current stable version.
+While you can install ansible via your package manager this is highly discouraged because it tends to be very far behind the current stable version. As such I recommend one of the following:
 
 ### venv:
 
@@ -25,7 +25,7 @@ Whenever you want to use ansible make sure you have activated the venv.
 
 ### pipx
 
-I will defer to official docs for installation of [pipx](https://pipx.pypa.io/stable/).
+I will defer to official docs for installation of [pipx](https://pipx.pypa.io/stable/). Once installed you can install ansible with some useful optional dependencies with the following:
 
 ```bash
 # Base install
