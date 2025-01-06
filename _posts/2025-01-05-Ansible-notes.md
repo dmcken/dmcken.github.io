@@ -1,6 +1,6 @@
 ---
 title: Ansible notes
-# date: 2024-04-07 00:00:01 -0400
+date: 2025-01-05 00:00:01 -0400
 categories: [automation, ansible]
 tags: [automation, ansible]
 author: dmcken
