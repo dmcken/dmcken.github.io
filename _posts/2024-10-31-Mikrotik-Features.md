@@ -7,13 +7,23 @@ author: dmcken
 comments: false
 ---
 
+List of desired features currently missing from Mikrotik RouterOS v7.
+
+## OSPF
+
+* Interfaces are no longer listed in the neighbor list.
 
 ## EVPN
 
 * BGP support is currently missing.
-* VxLAN transport is active but no coordination.
+  * This includes just using a mikrotik as a route reflector for leaf devices.
+* VxLAN transport is active but no coordination between devices.
 
 ## System
+
+### Memory usage
+
+While you can get a breakdown of both CPU usage on a per-CPU basis or process (Tool -> Profile). There is no way to get a breakdown of memory usage by even general categories.
 
 ### History
 
@@ -28,6 +38,9 @@ address list entry added by api:dmcken@192.168.1.80 (*5 = /ip firewall address-l
 
 Only have trace and action visible to GUI, redo and undo are visible via CLI.
 
+### Users
+
+User database is kept separate of the general config, copying the user database from one router to another is currently not possible.
 
 ## Tools
 
