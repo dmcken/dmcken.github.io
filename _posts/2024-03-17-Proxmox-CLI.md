@@ -9,6 +9,9 @@ comments: false
 
 This is to be a list of various CLI commands or scenarios for either automation or if for some reason the GUI is unavailable or unresponsive.
 
+# Config
+
+Configs are stored in /etc/pve
 
 # VMs
 
