@@ -11,7 +11,21 @@ This is to be a list of various CLI commands or scenarios for either automation 
 
 # Config
 
-Configs are stored in /etc/pve
+Configs are stored in /etc/pve, while direct editing of these files is not recommended or supported the information in these files can be useful in an emergency situation or when the GUI is unavilable / unresponsive.
+
+* In cluster setups this is a fuse mount-point managed by the corosync process.
+* Loss of quorum can make this mount point read-only.
+
+## Layout
+
+
+# Cluster
+
+## Core
+
+## Storage
+
+
 
 # VMs
 
