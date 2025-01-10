@@ -13,6 +13,15 @@ comments: false
 
 * Auto-upgrade: Enable
 
+## Services
+
+If you want to see what ports Mikrotik uses and the matching ports:
+https://help.mikrotik.com/docs/spaces/ROS/pages/103841820/Services
+
+### Hiding services
+
+Sometimes you want to keep running a service but not expose it
+
 ## SSH
 
 * Strong Crypto: Enable
