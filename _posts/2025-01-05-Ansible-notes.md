@@ -31,7 +31,8 @@ I will defer to official docs for installation of [pipx](https://pipx.pypa.io/st
 # Base install
 pipx install --include-deps ansible
 
-# Addons
+# Common Addons
+pipx inject ansible passlib
 pipx inject ansible paramiko
 pipx inject ansible ansible-pylibssh
 ```
@@ -59,37 +60,73 @@ If not then there is something wrong with your install (or you are not in your v
 
 ## Ad-hoc commands / basic setup
 
-Check if you can connect to a machine via ssh
+Check if you can connect to a machine via ssh.
 
 ```bash
 ansible all -i 192.168.1.11, -m ping -u <username> -k
+```
+
+or
+
+```bash
 ansible all -i 192.168.1.12, -m shell -a "who" -u admin -k
 ```
 
+These only work for *NIX-style shells with the appropriate commands. Restricted shells (especially those of routers or other embedded systems) will likely not work.
 
-## Bare bones setup
+### Single task playbook to command
 
+Take a single task playbook to a single command line (i.e. use `ansible` vs `ansible-playbook`).
 
+```yaml
+---
+- name Setup users
+  hosts all
+  become true
+  tasks
+    - name add user hybrid
+      ansible.builtin.user
+        name hybrid
+        password {{ 'acctpassword'  password_hash('sha512') }}
+        groups
+          - sudo
+        state present
+        create_home true
+        shell binbash
+        update_password on_create
+```
 
-
-## Mikrotik
+## Mikrotik RouterOS
 
 ### Pre-requisites
+
+The current
+
 ```bash
 pipx inject ansible librouteros
 ```
 
+### Ad-hoc command
 
-### Ad-hoc
+Connects to:
+* host:
+  * Inventory: -i 192.168.1.12,
+  * All hosts in the inventory
+* username: -u admin
+* Ask for passsword at rumtime (-k)
+* Use the routeros community plugin
+* Run the network_cli function
+* Run the command: "/ip/address/print"
 
 ```bash
-ansible all -i 192.168.1.12, -u dmcken -k \
+ansible all -i 192.168.1.11,192.168.1.12 -u admin -k \
     -e ansible_network_os=community.routeros.routeros \
     -e ansible_connection=ansible.netcommon.network_cli \
     -m community.routeros.command -a "commands=/ip/address/print"
 ```
 
-or with a inventory file of:
+Or if you want to use a re-usable inventory file:
+
 ```
 [routers]
 rtr_bedroom     ansible_host=192.168.1.12
@@ -98,19 +135,21 @@ rtr_livingroom  ansible_host=192.168.1.11
 [routers:vars]
 ansible_connection=ansible.netcommon.network_cli
 ansible_network_os=community.routeros.routeros
-ansible_user=dmcken
+ansible_user=admin
 ansible_ssh_pass=password123
 ```
 
+Obviously change the user and ssh_pass to your appropriate values.
+
+Your command line now becomes:
 ```bash
-
-
-ansible routers -i hosts -m community.routeros.facts
 ansible routers -i hosts -m community.routeros.command -a "commands=/ip/address/print"
 ```
 
-
-
+Testing connectivity can also be done with:
+```bash
+ansible routers -i hosts -m community.routeros.facts
+```
 
 # Random notes:
 
