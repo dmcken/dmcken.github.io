@@ -13,12 +13,18 @@ comments: false
 
 While you can install ansible via your package manager this is highly discouraged because it tends to be very far behind the current stable version. As such I recommend one of the following:
 
-### venv:
+### Standard venv
 
-I will defer to official docs for creation and setup of [venv](https://docs.python.org/3/library/venv.html).
+I will defer to official docs for creation and setup of [venv](https://docs.python.org/3/library/venv.html). Once setup and entered
 
 ```bash
+# Base install
 pip install --include-deps ansible argcomplete
+
+# Common addons
+pip install --include-deps passlib
+pip install --include-deps paramiko
+pip install --include-deps ansible-pylibssh
 ```
 
 Whenever you want to use ansible make sure you have activated the venv.
@@ -79,6 +85,7 @@ These only work for *NIX-style shells with the appropriate commands. Restricted 
 Take a single task playbook to a single command line (i.e. use `ansible` vs `ansible-playbook`).
 
 ```yaml
+{% raw %}
 ---
 - name Setup users
   hosts all
@@ -94,6 +101,7 @@ Take a single task playbook to a single command line (i.e. use `ansible` vs `ans
         create_home true
         shell binbash
         update_password on_create
+{% endraw %}
 ```
 
 ## Mikrotik RouterOS
@@ -150,6 +158,13 @@ Testing connectivity can also be done with:
 ```bash
 ansible routers -i hosts -m community.routeros.facts
 ```
+
+## Netbox inventory
+
+Goals:
+* Use netbox to provide the inventory data (hosts list)
+  * Filtered by platforms primarily (playbooks for routers cannot be used against servers and vice-versa).
+* Use tags on device to flag groups of
 
 # Random notes:
 
