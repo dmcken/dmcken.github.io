@@ -22,7 +22,15 @@ comments: false
 find . -name Thumbs.db
 ```
 
+## Hardware
 
+* lspci
+* lsusb
+* lscpu
+* lsblk
+* lsscsi
+* lsmod
+* lshw
 
 ## Networking
 https://linux-audit.com/cheat-sheets/ip/
