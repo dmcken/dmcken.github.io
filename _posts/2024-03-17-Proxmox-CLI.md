@@ -16,8 +16,11 @@ Configs are stored in /etc/pve, while direct editing of these files is not recom
 * In cluster setups this is a fuse mount-point managed by the corosync process.
 * Loss of quorum can make this mount point read-only.
 
-## Layout
+## Config layout
 
+* VMs config:
+  * /etc/pve/nodes/<node name>/<VM ID>.conf
+* Done
 
 # Cluster
 
@@ -71,30 +74,34 @@ pct set 102 -mp0 /mnt/nas0/,mp=/nas0/
 ## Proxmox - Official
 
 | Command      | Description |
-| -------      | ----------- |
-| pvecm        | Proxmox cluster management. |
-| pveceph      |     |
-| pve-firewall |     |
-| pve-ha-crm   |     |
-| pve-ha-lrm   |     |
-| pvenode      |     |
-| pvesm        | Proxmox storage management. |
-| pvesr        |     |
-| pveum        |     |
-| pveam        |     |
-| pvebanner    |     |
-| pvedaemon    |     |
-| pvefw-logger |     |
-| pvereport    |     |
-| pvescheduler |     |
-| pveupdate    |     |
-| pveupgrade   |     |
-| pveversion   |     |
+| ---------------------- | ----------- |
 | proxmox-offline-mirror |     |
 | proxmox-backup-client  |     |
 | proxmox-file-restore   |     |
-| pvesh   | CLI version of the API |
-| pvesr   | Storage Replication |
+| pve-firewall           |     |
+| pve-ha-crm             |     |
+| pve-ha-lrm             |     |
+| pveam                  |     |
+| pvebanner              |     |
+| pvecm                  | Proxmox cluster management |
+| pveceph                |     |
+| pvedaemon              |     |
+| pvefw-logger           |     |
+| pvenode                |     |
+| pvereport              |     |
+| pveperf                | Proxmox VE Benchmark |
+| pvescheduler |     |
+| pvesh        | CLI version of the API |
+| pvesm        | Proxmox storage management |
+| pvesr        | Storage Replication |
+| pveum        |     |
+| pveupdate    |     |
+| pveupgrade   |     |
+| pveversion   |     |
+
+
+
+| qm | VM management |
 
 ## External
 
@@ -103,6 +110,9 @@ pct set 102 -mp0 /mnt/nas0/,mp=/nas0/
 | pct          |     |
 | qmrestore | Restore qemu server backups |
 | `qm remote-migrate` and `pct remote-migrate` | Migrate a VM to a different cluster |
+| nfsstat -m |  |
+| NFS connection `netstat | grep :nfs` or `ss -a | grep nfs` |    |
+|
 
 # Services
 
