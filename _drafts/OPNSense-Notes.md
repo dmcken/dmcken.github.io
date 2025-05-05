@@ -16,6 +16,17 @@ comments: false
 
 ### Post-install setup
 
+#### Disk status (cli)
+
+List physical disks
+
+```bash
+geom disk list
+# or
+camcontrol devlist
+```
+
+
 #### CARP notes
 
 It seems CARP can be setup on a interface with
@@ -84,6 +95,40 @@ Usage:
 
 
 ## Shell commands
+
+### FreeBSD troubleshooting
+
+* OS
+  * Kernel:
+    * `uname -a` - Show kernel version
+    * `config -x /boot/kernel/kernel` - List config for kernel
+    * `kldstat -v` - List modules active
+  * Routes:
+    * `netstat -nr` - Display the routing table
+* Firewall
+  * PF:
+    * Enable:
+      * `pfctl -e`
+    * Disable:
+      * `pfctl -d`
+    * State
+      * `pfctl -s states`
+      * `pfctl -F all -f /etc/pf.conf` - Flush all state and reload config /etc/pf.conf
+      * `pfctl -s rules` - Report state of rules, can also query nat and states
+      * `pfctl -vnf /etc/pf.conf` - Check ruleset before applying
+    * Logs:
+      * `tcpdump -n -e -ttt -r /var/log/pflog` - To view PF logs
+      * `tcpdump -n -e -ttt -i pflog0` - To view logs in real-time from the pflog0 interface, run the following command
+      * `pftop` - The pftop utility is a tool for quickly viewing firewall activity in real-time; it can be installed and started with `pkg install pftop`
+    * `pfctl -sm`
+    * `pftop`
+* Done
+
+https://www.zenarmor.com/docs/network-security-tutorials/freebsd-firewall-configuration-with-pf
+https://rockyhotas.github.io/unix/2019/02/27/freebsd-kernel-modules.html
+https://galeracluster.com/library/documentation/firewall-pf.html
+https://docs-archive.freebsd.org/doc/8.4-RELEASE/usr/share/doc/freebsd/handbook/firewalls-pf.html
+https://docs.freebsd.org/en/books/handbook/firewalls/
 
 ### FRR Routing
 
