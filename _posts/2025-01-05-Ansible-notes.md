@@ -111,6 +111,9 @@ Take a single task playbook to a single command line (i.e. use `ansible` vs `ans
 The current
 
 ```bash
+pipx inject ansible ansible-dev-tools --include-apps
+pipx inject ansible ansible-lint --include-apps
+pipx inject ansible argcomplete
 pipx inject ansible librouteros
 ```
 
