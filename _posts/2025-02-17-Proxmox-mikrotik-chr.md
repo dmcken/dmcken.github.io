@@ -33,6 +33,9 @@ zfs list -t volume
 dd if=chr-6.49.13.img of=/dev/zvol/tank/vm-101-disk-0 bs=1M
 ```
 
+The default username and password is admin / <blank> .
+
+
 * https://forum.proxmox.com/threads/import-convert-export-raw-images-to-zfs-volume.21241/
 * https://forum.proxmox.com/threads/migrate-qcow2-or-raw-images-to-zfs-volume.44966/
 
