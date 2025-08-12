@@ -65,8 +65,34 @@ After changing the "Host Key Type" regenerate the host key.
 ```
 /interface list
 add name=exclude_discovery
+add name=customer_facing
 ```
+
+## Interfaces
+
+### Vlan Interfaces
+
+Ranges should be selected, a recommended setup could be:
+| Start | End | Description |
+| ----- | --- | ----------- |
+| 1     | 1  | Reserved for onboarding / detecing misconfigurations as this is the default |
+| 2     | 19 | Reserved |
+| 20    | 49  | Backhauls / Interconnects |
+| 50    | 99  | Reserved |
+| 100   | 110 | Customer facing (Residential, Business, etc) |
+| 111   | 3999 | Individual
 
 ## Neighbor discovery
 
-## Services
+* Block:
+  * customer facing interfaces
+  * Upstream / provider facing
+* Enable:
+  * Internal interfaces
+  * Connections between internal sites (unless there is an external provider to be concerned about).
+
+## IP -> Firewall
+
+* Customer facing:
+  * Block all RFC1918 blocks + multicast destinations.
+  * Block any source not setup on the interface (these interfaces are not used for transit). Special use cases can have a specific list of prefixes that is allowed.
