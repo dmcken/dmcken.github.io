@@ -20,6 +20,14 @@ A secure ISP template, ansible implementation will be published.
 If you want to see what ports Mikrotik uses and the matching ports:
 https://help.mikrotik.com/docs/spaces/ROS/pages/103841820/Services
 
+`IP->Services` section controls the core management interfaces available on the router. Common services that would be enabled:
+* api(-ssl)
+* ssh
+* winbox
+* www(-ssl) - REST API
+
+These services can be isolated in their own VRF for connectivity to a OOB network.
+
 ### Hiding services
 
 Sometimes you want to keep running a service but not expose it
