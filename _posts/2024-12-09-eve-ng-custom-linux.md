@@ -30,9 +30,9 @@ In this post I’m going to demonstrate how to install FRR on the popular networ
 
 ## Prerequisites
 
-If you are not familiar with [EVE-NG](http://www.eve-ng.net/) or Emulated Virtual Environment (EVE), it is a platform for designing, testing and training with virtual appliances and network emulation software. Although geared more towards networking, you can emulate almost anything in Eve-NG that can run on the [KVM](https://www.linux-kvm.org/page/Main_Page) hypervisor. Since FRR is a routing platform Eve-NG provides everything you need to start creating labs and proof of concepts using FRR.
+If you are not familiar with [EVE-NG](https://www.eve-ng.net/) or Emulated Virtual Environment (EVE), it is a platform for designing, testing and training with virtual appliances and network emulation software. Although geared more towards networking, you can emulate almost anything in Eve-NG that can run on the [KVM](https://www.linux-kvm.org/page/Main_Page) hypervisor. Since FRR is a routing platform Eve-NG provides everything you need to start creating labs and proof of concepts using FRR.
 
-Eve-NG can run on bare metal or as a virtual appliance on KVM and VMware. There are a few different [installation](http://www.eve-ng.net/documentation/installation/system-requirement) methods so I’m not going to cover that in this post. Once you have a running instance of Eve-NG you can follow along with how to set up FRR for use within Eve-NG.
+Eve-NG can run on bare metal or as a virtual appliance on KVM and VMware. There are a few different [installation](https://www.eve-ng.net/documentation/installation/system-requirement) methods so I’m not going to cover that in this post. Once you have a running instance of Eve-NG you can follow along with how to set up FRR for use within Eve-NG.
 
 ## Client Tools
 
@@ -48,11 +48,11 @@ It is highly recommended that you install the Eve-NG [Client Integration tools](
 
 Before we start installing FRR its important to check the FRR [Releases](https://github.com/FRRouting/frr/releases) page. Here you’ll find a list of versions and their supported features as well as the different installation methods for your chosen base operating system.
 
-If you are interested in testing a specific feature you should also review the [Supported Protocols](http://docs.frrouting.org/en/latest/overview.html#supported-protocols-vs-platform) section of the FRR documentation. Here you’ll find the OS and kernel version requirements for all of FRR’s supported features.
+If you are interested in testing a specific feature you should also review the [Supported Protocols](https://docs.frrouting.org/en/latest/overview.html#supported-protocols-vs-platform) section of the FRR documentation. Here you’ll find the OS and kernel version requirements for all of FRR’s supported features.
 
 It’s important to note that some of the newest features of FRR require the latest linux kernel versions. I’m going to start with a standard installation of the [Ubuntu Server](https://ubuntu.com/download/server) version 24.04.1 LTS and demonstrate how to upgrade to the most recent kernel versions.
 
-The process I’m going to use is well documented in the EVE-NG [Linux How-To](http://www.eve-ng.net/documentation/howto-s/106-howto-create-own-linux-image) documentation. I’ve only added a few steps I’ve found useful for working with FRR.
+The process I’m going to use is well documented in the EVE-NG [Linux How-To](https://www.eve-ng.net/documentation/howto-s/106-howto-create-own-linux-image) documentation. I’ve only added a few steps I’ve found useful for working with FRR.
 
 ### Get Ubuntu Server ISO
 
