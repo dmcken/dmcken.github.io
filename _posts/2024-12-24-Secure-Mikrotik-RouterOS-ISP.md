@@ -7,6 +7,8 @@ author: dmcken
 comments: false
 ---
 
+A secure ISP template, ansible implementation will be published.
+
 # Core settings
 
 ## Routerboard
