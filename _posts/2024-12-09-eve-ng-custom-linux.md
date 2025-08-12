@@ -26,7 +26,7 @@ If you’ve been around networking long enough chances are you have heard of the
 
 FRR has been around since 2016 when it was forked from the Quagga project. It has a growing number of contributors and support from various networking vendors such as Cumulus, VMware, Volta, Orange and 6wind with the common goal of creating a “world class routing stack.” The FRR project is currently licensed under the GPLv2+ and is overseen by The Linux Foundation in an effort to ensure the project’s growth and sustainability.
 
-In this post I’m going to demonstrate how to install FRR on the popular network modeling platform [EVE-NG](http://www.eve-ng.net/). This will allow you to evaluate FRR and its many features and hopefully inspire you to get more involved with open source routing.
+In this post I’m going to demonstrate how to install FRR on the popular network modeling platform [EVE-NG](https://www.eve-ng.net/). This will allow you to evaluate FRR and its many features and hopefully inspire you to get more involved with open source routing.
 
 ## Prerequisites
 
