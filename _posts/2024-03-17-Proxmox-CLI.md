@@ -122,3 +122,28 @@ pct set 102 -mp0 /mnt/nas0/,mp=/nas0/
 | pve-guests |     |
 | pvebanner |     |
 | pvernetcommit |       |
+
+
+
+
+
+
+
+
+
+
+### To add
+
+```bash
+vnstat -l -i vmbr1
+zpool iostat -r
+zpool iostat -qly 10
+
+usage:
+        iostat [[[-c [script1,script2,...][-lq]]|[-rw]] [-T d | u] [-ghHLpPvy]
+            [[pool ...]|[pool vdev ...]|[vdev ...]] [[-n] interval [count]]
+
+```
+
+
+
