@@ -36,6 +36,22 @@ Create / edit `/etc/docker/daemon.json`
 }
 ```
 
+## Rotate log files
+
+Create / edit `/etc/docker/daemon.json`
+
+```json
+{
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "10m",
+    "max-file": "5"
+  }
+}
+```
+
+This will limit the size to 50MB (5 x 10MB).
+
 
 ## Disabling DNS daemon on systemd systems
 
